@@ -1,0 +1,11 @@
+nome_produto,loja,preco,texto_reviews,url_produto
+Smartphone Alfa,LojaAzul,1200.00,"Celular muito bom! Câmera excelente e bateria que dura o dia todo. Recomendo.",https://lojaazul.com/alfa
+Smartphone Alfa,LojaVerde,1150.00,"Preço ótimo, mas esquenta um pouco. O software é meio lento as vezes. Não sei se compraria de novo.",https://lojaverde.com/alfa
+Smartphone Alfa,LojaAmarela,1250.00,"Chegou rápido, produto conforme o esperado. Nada a reclamar, nem a elogiar.",https://lojaamarela.com/alfa
+Fone Gamma,LojaAzul,250.00,"Som cristalino, graves potentes! Confortável e a bateria dura muito.",https://lojaazul.com/gamma
+Fone Gamma,LojaVermelha,270.00,"O som é bom, mas o microfone é péssimo para chamadas. Fiquei frustrado.",https://lojavermelha.com/gamma
+Fone Gamma,LojaBranca,245.00,"Fone ok, mas a conexão bluetooth falha as vezes. Por esse preço, esperava mais.",https://jmalemg.com/gamma
+Smart TV Delta,LojaAzul,3000.00,"Imagem incrível, 4K de verdade. As cores são vibrantes. Muito satisfeito.",https://lojaazul.com/delta
+Smart TV Delta,LojaVerde,2800.00,"A TV é boa, mas a interface é um pouco confusa. Demora pra ligar.",https://lojaverde.com/delta
+Smart TV Delta,LojaPreta,3100.00,"Entrega rápida, TV sem defeitos. Perfeita para filmes e séries. Recomendo!",https://lojapreta.com/delta
+Webcam,LojaNova,150.00,,https://lojanova.com/webcam

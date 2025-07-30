@@ -1,0 +1,5 @@
+nome_do_produto,qtd_lojas_encontradas,preco_minimo,preco_maximo,preco_medio,variacao_de_preco_percentual,urls_de_lojas,classificacao_sentimento_geral,score_sentimento_composto,porcentagem_pos_reviews,porcentagem_neg_reviews,porcentagem_neu_reviews
+Smartphone Alfa,3,1150.0,1250.0,1200.0,8.333333333333332,https://lojaazul.com/alfa | https://lojaverde.com/alfa | https://lojaamarela.com/alfa,Neutro,0.0,0.0,0.0,1.0
+Fone Gamma,3,245.0,270.0,255.0,9.803921568627452,https://lojaazul.com/gamma | https://lojavermelha.com/gamma | https://jmalemg.com/gamma,Neutro,0.0,0.068,0.068,0.864
+Smart TV Delta,3,2800.0,3100.0,2966.6666666666665,10.112359550561798,https://lojaazul.com/delta | https://lojaverde.com/delta | https://lojapreta.com/delta,Neutro,0.0,0.0,0.0,1.0
+Webcam,1,150.0,150.0,150.0,0.0,https://lojanova.com/webcam,Neutro (Sem reviews),0.0,0.0,0.0,1.0
