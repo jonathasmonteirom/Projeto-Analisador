@@ -39,5 +39,10 @@ Agora é só olhar a saída no Terminal ou abrir o arquivo `analise_detalhada.cs
 
 # Ferramentas Usadas
 
-* **`pandas`**: Pra organizar os dados em tabelas (o Excel do Python).
-* **`NLTK`**: Pra fazer a análise de texto e de sentimento.
+* **`pandas`**: Organizar, manipular e analisar dados em formato de tabelas (que chamamos de DataFrames).
+
+- No projeto: É usado para ler seus dados de produtos do arquivo produtos.csv, organizar e fazer cálculos como preço mínimo, máximo e médio, e depois salvar os resultados finais em um novo arquivo CSV. Sem ele, seria muito difícil trabalhar com os dados do seu arquivo.
+
+* **`NLTK`**: Pra que serve: É a biblioteca principal para lidar com textos em linguagem humana. Ela tem várias ferramentas para "ensinar" o computador a entender o que as pessoas escrevem.
+
+- No projeto: É usada especificamente para a análise de sentimento das avaliações de produtos. Ele nos ajuda a classificar se uma review é "positiva", "negativa" ou "neutra".
