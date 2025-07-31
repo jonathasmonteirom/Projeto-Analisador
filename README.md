@@ -1,18 +1,43 @@
-# Analisador de Produto para E-commerce 
+# Analisador de Produtos
 
+Este é um programa em Python que criado para ajudar a escolher produtos pra vender. A ideia é simples: ele lê dados de produtos que você coloca num arquivo e faz um resumo pra você.
 
-# O que este projeto faz?
+O que ele faz?
 
-Este programa em Python te ajuda a analisar produtos para sua loja virtual. Ele faz duas coisas principais de forma simples:
+1.  **Compara Preços:** Pega o preço do mesmo produto em várias lojas e te diz qual é o mais barato, o mais caro e a média.
+2.  **Lê as Avaliações:** Analisa o que os clientes estão dizendo sobre o produto e te diz se a galera curtiu (Positivo), não gostou (Negativo) ou se tá tudo na média (Neutro).
 
-1. Compara Preços: Lê os preços de um mesmo produto de diferentes "lojas" (informações que você coloca em um arquivo CSV). Ele calcula o preço médio, o mais barato e o mais caro.
-2. Analisa Avaliações: Lê o que as pessoas escreveram sobre o produto ("reviews") e te diz se o sentimento geral é Positivo, Negativo ou Neutro.
+No final, ele mostra um resumo no Terminal e salva tudo numa planilha.
 
-Os resultados da análise são mostrados direto no seu Terminal e também são salvos em um arquivo de planilha (`.csv`) para melhor análise.
+---
 
-# Módulos Externos Utilizados
+# Como Usar
 
-Este projeto usa dois módulos (bibliotecas) Python principais:
+**1. Preparando:**
 
-* `pandas`: Ajuda a organizar e calcular os dados em tabelas.
-* `NLTK` (Natural Language Toolkit): Usado para entender o "sentimento" dos textos das avaliações.
+* Você precisa ter o **Python** no seu PC.
+* Crie a pasta `analisador_ecommerce` e as subpastas `dados` e `saida` dentro dela.
+* Crie os arquivos `analisador.py`, `README.md` e `requirements.txt` na pasta principal.
+* Crie o arquivo `produtos.csv` na pasta `dados`.
+
+**2. Colocar seus dados:**
+
+* Abra o arquivo `produtos.csv` e coloque as informações dos produtos que você quer analisar. Lembrar de seguir o formato `nome_produto,loja,preco,texto_reviews,url_produto`.
+* É importante que o **`nome_produto` seja idêntico** para o mesmo item em lojas diferentes!
+* Se não tiver review, deixe o campo `texto_reviews` em branco.
+
+**3. Rodar:**
+
+* Abra o Terminal na pasta do projeto.
+* Ative o ambiente virtual (`.\venv\Scripts\activate` ou `source venv/bin/activate`).
+* Instale o que o programa precisa: `pip install -r requirements.txt`.
+* Execute o programa: `python analisador.py`.
+
+Agora é só olhar a saída no Terminal ou abrir o arquivo `analise_detalhada.csv` na pasta `saida` pra ver o relatório completo.
+
+---
+
+# Ferramentas Usadas
+
+* **`pandas`**: Pra organizar os dados em tabelas (o Excel do Python).
+* **`NLTK`**: Pra fazer a análise de texto e de sentimento.
