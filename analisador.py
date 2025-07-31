@@ -1,23 +1,23 @@
-# --- IMPORTS NECESSÁRIOS ---
+# --- IMPORTS NECESSÁRIOS
 import pandas as pd
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import re
 from pathlib import Path
 
-# --- FUNÇÃO: Pré-processamento de Texto ---
+# --- FUNÇÃO: Pré-processamento de Texto
 def pre_processar_texto(texto: str) -> str:
     if not isinstance(texto, str):
         return ""
     texto = texto.lower()
-    texto = re.sub(r'http\S+|www\S+|https\S+', '', texto, flags=re.MULTILINE)
+    texto = re.sub(r'http\S+|www\S+|https\S+', '', texto)
     texto = re.sub(r'@\w+', '', texto)
     texto = re.sub(r'#\w+', '', texto)
     texto = re.sub(r'[^a-zA-ZáàâãéèêíïóôõöúüçÁÀÂÃÉÈÊÍÏÓÔÕÖÚÜÇ\s]', '', texto)
     texto = re.sub(r'\s+', ' ', texto).strip()
     return texto
 
-# --- FUNÇÃO: Análise de Sentimento ---
+# --- FUNÇÃO: Análise de Sentimento
 def analisar_sentimento_do_texto(texto_reviews: str) -> dict:
     analisador_vader = SentimentIntensityAnalyzer()
     
@@ -48,16 +48,16 @@ def analisar_sentimento_do_texto(texto_reviews: str) -> dict:
         'porcentagem_neu_reviews': scores_vader['neu']
     }
 
-# --- FUNÇÃO PRINCIPAL DO PROGRAMA ---
+# --- FUNÇÃO PRINCIPAL DO PROGRAMA
 def main():
     print("\n--- Iniciando Analisador de Produto ---")
 
-    # --- Configuração de Caminhos ---
+    # --- Configuração de Caminhos
     caminho_arquivo_entrada = Path('dados/produtos.csv')
     caminho_arquivo_saida = Path('saida/analise_detalhada.csv')
     caminho_arquivo_saida.parent.mkdir(parents=True, exist_ok=True)
 
-    # --- Carregamento e Validação dos Dados ---
+    # --- Carregamento e Validação dos Dados
     try:
         df_produtos = pd.read_csv(caminho_arquivo_entrada, encoding='utf-8')
         if df_produtos.empty:
@@ -77,14 +77,14 @@ def main():
         print(f"ERRO ao carregar CSV: {e}")
         return
 
-    # --- Pré-processamento de Preços ---
+    # --- Pré-processamento de Preços
     df_produtos['preco'] = pd.to_numeric(df_produtos['preco'], errors='coerce')
     df_produtos.dropna(subset=['preco'], inplace=True) 
     if df_produtos.empty:
         print("AVISO: Nenhum produto com preço válido após limpeza. Análise abortada.")
         return
 
-    # --- Análise por Produto e Agrupamento ---
+    # --- Análise por Produto e Agrupamento
     print("\nRealizando análise de preços e avaliações...")
     
     resultados_finais_lista = []
@@ -119,7 +119,7 @@ def main():
             'porcentagem_neu_reviews': resultado_sentimento['porcentagem_neu_reviews']
         })
 
-    # --- Criação e Exibição do DataFrame Final ---
+    # --- Criação e Exibição do DataFrame Final
     df_analise_completa = pd.DataFrame(resultados_finais_lista)
     if df_analise_completa.empty:
         print("AVISO: Nenhum resultado final gerado.")
@@ -132,14 +132,14 @@ def main():
     ]
     print(df_analise_completa[colunas_resumo].round(2).to_string(index=False))
 
-    # --- Salvamento dos Resultados Detalhados ---
+    # --- Salvamento dos Resultados Detalhados
     try:
         df_analise_completa.to_csv(caminho_arquivo_saida, index=False, encoding='utf-8')
         print(f"\nResultados detalhados salvos em: '{caminho_arquivo_saida}'.")
     except Exception as e:
         print(f"ERRO ao salvar os resultados no CSV: {e}")
 
-# --- Chamada Principal (garante NLTK download na primeira vez) ---
+# --- Chamada Principal (garante NLTK download na primeira vez)
 if __name__ == '__main__':
     try:
         nltk.data.find('sentiment/vader_lexicon.zip')
